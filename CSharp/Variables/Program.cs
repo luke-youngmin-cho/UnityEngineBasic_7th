@@ -12,7 +12,7 @@
 // = : 대입연산자. 오른쪽에있는 값을 왼쪽에있는 변수에 대입하는 연산자.
 
 int number1 = 25; // int : 부호가 있는 4byte 정수형
-int number2 = 4;
+uint number2 = 4; // unsigned integer : 부호가 없는 4byte 정수형
 short snum; // short : 부호가 있는 2byte 정수형
 long lnum; // long : 부호가 있는 8 byte 정수형
 float fnum = 2.0f; // float : 4byte 실수형

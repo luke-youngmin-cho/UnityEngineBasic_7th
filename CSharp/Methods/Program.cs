@@ -1,4 +1,4 @@
-﻿
+﻿//Method ⊂ Function
 
 // 함수 
 // 함수 선언
