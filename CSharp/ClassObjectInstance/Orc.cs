@@ -16,7 +16,10 @@ namespace ClassObjectInstance
 
         public void SayMyName()
         {
-            Console.WriteLine($"나는 오크. 내 이름은 {Name} 이다.");
+            // this 키워드
+            // 객체 자기자신의 참조를 반환하는 키워드 
+            // (함수호출스택 쌓을때 멤버참조를 했던 대상인 객체의 참조를 가짐)
+            Console.WriteLine($"나는 오크. 내 이름은 {this.Name} 이다.");
         }
 
         public void SayMyInfo()
