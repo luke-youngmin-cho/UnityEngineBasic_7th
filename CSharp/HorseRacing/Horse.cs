@@ -9,7 +9,7 @@ namespace HorseRacing
     internal class Horse
     {
         public string Name;
-        public string IsFinished;
+        public bool IsFinished;
         public int TotalDistance;
 
         public void Run(int distance)
