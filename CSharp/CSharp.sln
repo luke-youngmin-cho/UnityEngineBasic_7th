@@ -11,17 +11,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Methods", "Methods\Methods.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassObjectInstance", "ClassObjectInstance\ClassObjectInstance.csproj", "{58AC2FAF-9A62-4D0F-BBBE-399A2F96BCF4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statement_If", "Statement_If\Statement_If.csproj", "{9B363E2A-E680-4329-9E2F-065434A695B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statement_If", "Statement_If\Statement_If.csproj", "{9B363E2A-E680-4329-9E2F-065434A695B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statement_SwitchCase", "Statement_SwitchCase\Statement_SwitchCase.csproj", "{F3DF46CF-5F43-4E71-8EF4-0A4386A8014F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statement_SwitchCase", "Statement_SwitchCase\Statement_SwitchCase.csproj", "{F3DF46CF-5F43-4E71-8EF4-0A4386A8014F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Statements_Loop", "Statements_Loop\Statements_Loop.csproj", "{6A4EAB38-DF54-44D5-A671-3A2D22AAFE82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Statements_Loop", "Statements_Loop\Statements_Loop.csproj", "{6A4EAB38-DF54-44D5-A671-3A2D22AAFE82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operators", "Operators\Operators.csproj", "{D4F92DB2-F6AC-43B7-A507-B9F4DF94DB26}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Operators", "Operators\Operators.csproj", "{D4F92DB2-F6AC-43B7-A507-B9F4DF94DB26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array", "Array\Array.csproj", "{5616C828-D1DC-4F24-90BC-0B1AF07ADBBF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array", "Array\Array.csproj", "{5616C828-D1DC-4F24-90BC-0B1AF07ADBBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array2D", "Array2D\Array2D.csproj", "{EB9A463A-626E-4D4A-ADFF-ACB393B1506B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array2D", "Array2D\Array2D.csproj", "{EB9A463A-626E-4D4A-ADFF-ACB393B1506B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorseRacing", "HorseRacing\HorseRacing.csproj", "{A9EF1DC5-8476-48E7-9A7F-CE00D88847EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{EB9A463A-626E-4D4A-ADFF-ACB393B1506B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB9A463A-626E-4D4A-ADFF-ACB393B1506B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB9A463A-626E-4D4A-ADFF-ACB393B1506B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9EF1DC5-8476-48E7-9A7F-CE00D88847EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9EF1DC5-8476-48E7-9A7F-CE00D88847EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9EF1DC5-8476-48E7-9A7F-CE00D88847EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9EF1DC5-8476-48E7-9A7F-CE00D88847EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

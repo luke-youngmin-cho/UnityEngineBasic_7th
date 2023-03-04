@@ -5,7 +5,7 @@ if (condition1)
 {
     //조건1이 참일때 실행할 내용
     Console.WriteLine("조건1이 참이다");
-}
+}witch-case, en
 else if (condition2)
 {
     //조건1이 거짓이고 조건2가 참일때 실행할 내용
