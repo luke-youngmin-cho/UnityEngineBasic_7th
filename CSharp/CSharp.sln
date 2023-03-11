@@ -25,9 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Array2D", "Array2D\Array2D.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HorseRacing", "HorseRacing\HorseRacing.csproj", "{A9EF1DC5-8476-48E7-9A7F-CE00D88847EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Structure", "Structure\Structure.csproj", "{7B771E54-8470-48A0-8333-C275E61C09FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Structure", "Structure\Structure.csproj", "{7B771E54-8470-48A0-8333-C275E61C09FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abstraction", "Abstraction\Abstraction.csproj", "{D0A0FED8-1F3D-4945-AD20-E4C680C147CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstraction", "Abstraction\Abstraction.csproj", "{D0A0FED8-1F3D-4945-AD20-E4C680C147CE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{DE7A86DB-7062-46C2-A848-643FE56386CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{D0A0FED8-1F3D-4945-AD20-E4C680C147CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0A0FED8-1F3D-4945-AD20-E4C680C147CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0A0FED8-1F3D-4945-AD20-E4C680C147CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE7A86DB-7062-46C2-A848-643FE56386CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE7A86DB-7062-46C2-A848-643FE56386CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE7A86DB-7062-46C2-A848-643FE56386CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE7A86DB-7062-46C2-A848-643FE56386CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
