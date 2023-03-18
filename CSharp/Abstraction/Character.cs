@@ -25,5 +25,15 @@ namespace Abstraction
             // base : 부모타입의 현재 객체
             return base.GetLv();
         }
+
+        public static bool operator==(Character op1, Character op2)
+        {
+            return op1.Lv == op2.Lv;
+        }
+
+        public static bool operator!=(Character op1, Character op2)
+        {
+            return !(op1 == op2);   
+        }
     }
 }

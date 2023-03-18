@@ -20,6 +20,10 @@ namespace Abstraction
         {
             sword.Skill();
         }
+        public override int GetLv()
+        {
+            return base.GetLv();
+        }
     }
 }
 

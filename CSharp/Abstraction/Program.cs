@@ -21,7 +21,7 @@ creatures[2] = knight;
 creatures[3] = slime;
 creatures[4] = rat;
 //creatures[0].Attack();
-
+creatures[0].GetLv();
 for (int i = 0; i < creatures.Length; i++)
 {
     creatures[i].Breath();
