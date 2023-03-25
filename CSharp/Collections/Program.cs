@@ -7,7 +7,7 @@ using System.Collections.Generic;
 // 현재 자료 갯수
 
 
-#region 동적 배열
+#region Dynamic Array
 
 // 내가만든 동적배열
 //-----------------------------------------------------------------
@@ -71,7 +71,7 @@ arrayList.Add("안녕");
 
 #endregion
 
-#region Generic 동적배열
+#region Generic Dynamic Array
 
 // 내가만든 Generic 동적 배열
 //------------------------------------------------------------------------------------
@@ -113,4 +113,64 @@ foreach (double item in doubleList)
 {
 
 }
+#endregion
+
+#region Generic LinkedList
+// 내가만든 Generic LinkedList
+//--------------------------------------------------------------
+MyLinkedList<int> intLinkedList = new MyLinkedList<int>();
+intLinkedList.AddLast(2);
+intLinkedList.AddLast(3);
+intLinkedList.AddFirst(5);
+MyLinkedListNode<int> dummy = intLinkedList.FindLast(5);
+intLinkedList.AddAfter(dummy, 6);
+
+foreach (int value in intLinkedList)
+{
+    Console.WriteLine($"내 연결리스트 순회중... {value} ");
+}
+
+// C# System.Collections.Generic.LinkedList
+//---------------------------------------------------------------
+LinkedList<float> floatLinkedList = new LinkedList<float>();
+floatLinkedList.AddFirst(3);
+LinkedListNode<float>? dummy2 = floatLinkedList.FindLast(3);
+floatLinkedList.AddAfter(dummy2, 5);
+
+
+#endregion
+
+#region Generic Dictionary
+// 내가만든 Generic Dictionary
+//---------------------------------------------------------------
+MyDictionary<string, int> scores = new MyDictionary<string, int>();
+scores.Add("철수", 80);
+scores.Add("영희", 70);
+scores.Remove("영희");
+Console.WriteLine(scores["철수"]);
+
+// C# System.Collections.Generic.Dictioanry
+//---------------------------------------------------------------
+Dictionary<string, char> grades = new Dictionary<string, char>();
+grades.Add("철수", 'A');
+grades.Add("영희", 'C');
+grades.Remove("영희");
+
+foreach (KeyValuePair<string, char> grade in grades)
+{
+    Console.WriteLine($"{grade.Key} 의 등급 : {grade.Value}");
+}
+
+foreach (string key in grades.Keys)
+{
+    Console.WriteLine($"학급생 {key}");
+}
+
+foreach (char value in grades.Values)
+{
+    Console.WriteLine($"등급표 {value}");
+}
+
+
+
 #endregion
