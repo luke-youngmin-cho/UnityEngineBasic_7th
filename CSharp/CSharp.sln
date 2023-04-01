@@ -29,7 +29,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Structure", "Structure\Stru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstraction", "Abstraction\Abstraction.csproj", "{D0A0FED8-1F3D-4945-AD20-E4C680C147CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Collections", "Collections\Collections.csproj", "{DE7A86DB-7062-46C2-A848-643FE56386CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\Collections.csproj", "{DE7A86DB-7062-46C2-A848-643FE56386CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortAlgorithms", "SortAlgorithms\SortAlgorithms.csproj", "{CEBA821A-0702-4562-84CC-89F0601CA768}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +95,10 @@ Global
 		{DE7A86DB-7062-46C2-A848-643FE56386CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE7A86DB-7062-46C2-A848-643FE56386CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE7A86DB-7062-46C2-A848-643FE56386CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBA821A-0702-4562-84CC-89F0601CA768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEBA821A-0702-4562-84CC-89F0601CA768}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEBA821A-0702-4562-84CC-89F0601CA768}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEBA821A-0702-4562-84CC-89F0601CA768}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

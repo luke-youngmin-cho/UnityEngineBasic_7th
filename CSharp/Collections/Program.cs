@@ -174,3 +174,41 @@ foreach (char value in grades.Values)
 
 
 #endregion
+
+#region Queue
+
+Queue<string> queue = new Queue<string>();
+// 아이템 추가
+queue.Enqueue("철수");
+queue.Enqueue("영희");
+queue.Enqueue("미영");
+
+// 가장 먼저 추가된 아이템 반환
+Console.WriteLine(queue.Peek());
+while (queue.Count > 0)
+{
+    // 가장 앞에있는 아이템 제거 및 제거된아이템 반환
+    Console.WriteLine(queue.Dequeue());
+}
+
+#endregion
+
+#region Stack
+
+Stack<int> stack = new Stack<int>();
+
+// 아이템 추가 
+stack.Push(1);
+stack.Push(5);
+stack.Push(3);
+
+// 가장 늦게 추가된 아이템 반환
+Console.WriteLine(stack.Peek());
+
+while (stack.Count > 0)
+{
+    // 가장 늦게 추가된 아이템 제거 및 반환
+    Console.WriteLine(stack.Pop());
+}
+
+#endregion
