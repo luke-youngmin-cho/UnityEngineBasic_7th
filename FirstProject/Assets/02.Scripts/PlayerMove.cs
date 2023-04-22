@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
+    // SerializeField Attribute 
+    // í•´ë‹¹ í•„ë“œë¥¼ ì¸ìŠ¤í™í„°ì°½ì— ë…¸ì¶œì‹œí‚¤ëŠ” ì†ì„±
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private float _rotateSpeed;
+
     /// <summary>
-    /// ½ºÅ©¸³Æ® ÀÎ½ºÅÏ½º°¡ Ã³À½ ·ÎµåµÉ ¶§ È£Ãâ.
-    /// ÀÌ ½ºÅ©¸³Æ®¸¦ ÄÄÆ÷³ÍÆ®·Î °¡Áö´Â GameObject°¡ È°¼ºÈ­ µÇ¾î¾ß È£ÃâµÊ.
-    /// MonoBehaviour µéÀº »ı¼ºÀÚ¸¦ ÅëÇØ¼­ »ı¼ºÇÒ ¼ö ¾ø±â¶§¹®¿¡, Awake()¿¡¼­ ¸â¹öµéÀ» ÃÊ±âÈ­ ÇÔ.
+    /// ìŠ¤í¬ë¦½íŠ¸ ì¸ìŠ¤í„´ìŠ¤ê°€ ì²˜ìŒ ë¡œë“œë  ë•Œ í˜¸ì¶œ.
+    /// ì´ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì»´í¬ë„ŒíŠ¸ë¡œ ê°€ì§€ëŠ” GameObjectê°€ í™œì„±í™” ë˜ì–´ì•¼ í˜¸ì¶œë¨.
+    /// MonoBehaviour ë“¤ì€ ìƒì„±ìë¥¼ í†µí•´ì„œ ìƒì„±í•  ìˆ˜ ì—†ê¸°ë•Œë¬¸ì—, Awake()ì—ì„œ ë©¤ë²„ë“¤ì„ ì´ˆê¸°í™” í•¨.
     /// </summary>
     private void Awake()
     {
@@ -15,8 +20,8 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// ÀÌ ½ºÅ©¸³Æ® ÀÎ½ºÅÏ½º°¡ È°¼ºÈ­µÉ¶§¸¶´Ù È£ÃâµÊ.
-    /// + ÀÌ ½ºÅ©¸³Æ®¸¦ ÄÄÆ÷³ÍÆ®·Î °¡Áö´Â GameObject°¡ È°¼ºÈ­ µÉ ¶§¸¶´Ù È£ÃâµÊ.
+    /// ì´ ìŠ¤í¬ë¦½íŠ¸ ì¸ìŠ¤í„´ìŠ¤ê°€ í™œì„±í™”ë ë•Œë§ˆë‹¤ í˜¸ì¶œë¨.
+    /// + ì´ ìŠ¤í¬ë¦½íŠ¸ë¥¼ ì»´í¬ë„ŒíŠ¸ë¡œ ê°€ì§€ëŠ” GameObjectê°€ í™œì„±í™” ë  ë•Œë§ˆë‹¤ í˜¸ì¶œë¨.
     /// </summary>
     private void OnEnable()
     {
@@ -24,8 +29,8 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// ¸ğµç ¸â¹öº¯¼ö¸¦ ÃÊ±â°ªÀ¸·Î ¼³Á¤. Editor¿¡¼­¸¸ µ¿ÀÛ
-    /// ½ºÅ©¸³Æ® ÀÎ½ºÅÏ½º¸¦ Editor ¿¡¼­ GameObject ¿¡ AddComponent ÇßÀ»¶§ È£Ãâ
+    /// ëª¨ë“  ë©¤ë²„ë³€ìˆ˜ë¥¼ ì´ˆê¸°ê°’ìœ¼ë¡œ ì„¤ì •. Editorì—ì„œë§Œ ë™ì‘
+    /// ìŠ¤í¬ë¦½íŠ¸ ì¸ìŠ¤í„´ìŠ¤ë¥¼ Editor ì—ì„œ GameObject ì— AddComponent í–ˆì„ë•Œ í˜¸ì¶œ
     /// </summary>
     private void Reset()
     {
@@ -33,9 +38,9 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// ÇÁ·¹ÀÓ ½ÃÀÛ Àü¿¡ ÇÑ¹ø¸¸ È£ÃâµÊ.
-    /// Awake·Î ÃÊ±âÈ­¸¦ ¿Ï·áÇÑ ´Ù¸¥ °´Ã¼µéÀÇ ÂüÁ¶¸¦ ÅëÇØ¼­ ÃÊ±âÈ­ÇØ¾ßÇÏ´Â °ªµéÀÌ ÀÖ´Â°æ¿ì/
-    /// Ã³À½¿¡ °´Ã¼µéÀ» ÇÑ¹ø »ı¼ºÇØ¾ßÇÏ´Â °æ¿ì µî¿¡ »ç¿ëÇÒ ¼ö ÀÖ´Ù.
+    /// í”„ë ˆì„ ì‹œì‘ ì „ì— í•œë²ˆë§Œ í˜¸ì¶œë¨.
+    /// Awakeë¡œ ì´ˆê¸°í™”ë¥¼ ì™„ë£Œí•œ ë‹¤ë¥¸ ê°ì²´ë“¤ì˜ ì°¸ì¡°ë¥¼ í†µí•´ì„œ ì´ˆê¸°í™”í•´ì•¼í•˜ëŠ” ê°’ë“¤ì´ ìˆëŠ”ê²½ìš°/
+    /// ì²˜ìŒì— ê°ì²´ë“¤ì„ í•œë²ˆ ìƒì„±í•´ì•¼í•˜ëŠ” ê²½ìš° ë“±ì— ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤.
     /// </summary>
     private void Start()
     {
@@ -43,8 +48,8 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// °íÁ¤ ÇÁ·¹ÀÓ¼Óµµ·Î ¸ÅÇÁ·¹ÀÓ È£ÃâµÊ.
-    /// ¹°¸®¿¬»ê°ü·Ã ·ÎÁ÷Àº ÀÌ ÀÌº¥Æ®ÇÔ¼ö¿¡¼­ ¼öÇàÇØ¾ßÇÔ.
+    /// ê³ ì • í”„ë ˆì„ì†ë„ë¡œ ë§¤í”„ë ˆì„ í˜¸ì¶œë¨.
+    /// ë¬¼ë¦¬ì—°ì‚°ê´€ë ¨ ë¡œì§ì€ ì´ ì´ë²¤íŠ¸í•¨ìˆ˜ì—ì„œ ìˆ˜í–‰í•´ì•¼í•¨.
     /// </summary>
     private void FixedUpdate()
     {
@@ -52,68 +57,79 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// trigger °¡ ´Ù¸¥ Collider ¿Í °ãÄ¡´Â ¼ø°£¿¡ È£ÃâµÊ.
+    /// trigger ê°€ ë‹¤ë¥¸ Collider ì™€ ê²¹ì¹˜ëŠ” ìˆœê°„ì— í˜¸ì¶œë¨.
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log($"{other.name} ÀÌ(°¡) Æ®¸®°ÅµÊ");
+        Debug.Log($"{other.name} ì´(ê°€) íŠ¸ë¦¬ê±°ë¨");
     }
 
     /// <summary>
-    /// trigger ´Ù¸¥ Collider ¿Í °ãÃÄÀÖÀ¸¸é °è¼Ó È£ÃâµÊ.
+    /// trigger ë‹¤ë¥¸ Collider ì™€ ê²¹ì³ìˆìœ¼ë©´ ê³„ì† í˜¸ì¶œë¨.
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log($"{other.name} ÀÌ(°¡) Æ®¸®°ÅµÇ´Â Áß");
+        Debug.Log($"{other.name} ì´(ê°€) íŠ¸ë¦¬ê±°ë˜ëŠ” ì¤‘");
     }
 
     /// <summary>
-    /// trigger°¡ ´Ù¸¥ Collider ¿Í °ãÃÄÀÖ´Ù°¡ ¹ş¾î³ª´Â ¼ø°£ È£ÃâµÊ.
+    /// triggerê°€ ë‹¤ë¥¸ Collider ì™€ ê²¹ì³ìˆë‹¤ê°€ ë²—ì–´ë‚˜ëŠ” ìˆœê°„ í˜¸ì¶œë¨.
     /// </summary>
     /// <param name="other"></param>
     private void OnTriggerExit(Collider other)
     {
-        Debug.Log($"{other.name} ÀÌ(°¡) Æ®¸®°ÅÇØÁ¦µÊ");
+        Debug.Log($"{other.name} ì´(ê°€) íŠ¸ë¦¬ê±°í•´ì œë¨");
     }
 
     /// <summary>
-    /// Collider/Rigidbody °¡ ´Ù¸¥ Rigidbody/Collider ¿Í Ãæµ¹ÇÏ´Â ¼ø°£ È£Ãâ.
+    /// Collider/Rigidbody ê°€ ë‹¤ë¥¸ Rigidbody/Collider ì™€ ì¶©ëŒí•˜ëŠ” ìˆœê°„ í˜¸ì¶œ.
     /// </summary>
     /// <param name="collision"></param>
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log($"{collision.gameObject.name} ÀÌ(°¡) Ãæµ¹ÇÔ");
+        Debug.Log($"{collision.gameObject.name} ì´(ê°€) ì¶©ëŒí•¨");
     }
 
     private void OnCollisionStay(Collision collision)
     {
-        Debug.Log($"{collision.gameObject.name} ÀÌ(°¡) Ãæµ¹Áß");
+        Debug.Log($"{collision.gameObject.name} ì´(ê°€) ì¶©ëŒì¤‘");
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        Debug.Log($"{collision.gameObject.name} ÀÌ(°¡) Ãæµ¹³¡³²");
+        Debug.Log($"{collision.gameObject.name} ì´(ê°€) ì¶©ëŒëë‚¨");
     }
 
     private void OnMouseOver()
     {
-        Debug.Log("¸¶¿ì½º°¡ °¡¸®Å°´ÂÁß...");
+        Debug.Log("ë§ˆìš°ìŠ¤ê°€ ê°€ë¦¬í‚¤ëŠ”ì¤‘...");
     }
 
     /// <summary>
-    /// ¸Å ÇÁ·¹ÀÓ¸¶´Ù È£Ãâ
-    /// ±â±â ¼º´É¸¶´Ù ÇÁ·¹ÀÓ ÁÖ±â´Â ´Ş¶óÁü
+    /// ë§¤ í”„ë ˆì„ë§ˆë‹¤ í˜¸ì¶œ
+    /// ê¸°ê¸° ì„±ëŠ¥ë§ˆë‹¤ í”„ë ˆì„ ì£¼ê¸°ëŠ” ë‹¬ë¼ì§
     /// </summary>
     private void Update()
     {
         //Debug.Log("Update");
+        // Input class : ì‚¬ìš©ì ì…ë ¥ì„ ê²Œì„ ë¡œì§ì—ì„œ ì²˜ë¦¬í•˜ê¸°ìœ„í•œ í´ë˜ìŠ¤
+        float h = Input.GetAxis("Horizontal");
+        float v = Input.GetAxis("Vertical");
+        float r = Input.GetAxis("Mouse X");
+
+        // ê±°ë¦¬ = ì†ë ¥ x ì‹œê°„
+        // ê±°ë¦¬ë³€í™”ëŸ‰ = ì†ë ¥ x ì‹œê°„ë³€í™”ëŸ‰
+        // ë²¡í„°ì˜ í¬ê¸° = ê°ì¶•ì˜ ì œê³±ì˜ í•© ì— ë£¨íŠ¸
+        //transform.position += new Vector3(h, 0, v).normalized * _moveSpeed * Time.deltaTime;
+        transform.Translate(new Vector3(h, 0, v).normalized * _moveSpeed * Time.deltaTime, Space.Self);
+        transform.Rotate(Vector3.up * r * _rotateSpeed * Time.deltaTime);
     }
 
     /// <summary>
-    /// ¸Å ÇÁ·¹ÀÓ¸¶´Ù È£Ãâ
-    /// Update ¹× Coroutine (Yield) µîÀÇ ¸ğµç ·ÎÁ÷¿¬»ê ÈÄ ¸¶Áö¸·¿¡ È£ÃâµÊ.
+    /// ë§¤ í”„ë ˆì„ë§ˆë‹¤ í˜¸ì¶œ
+    /// Update ë° Coroutine (Yield) ë“±ì˜ ëª¨ë“  ë¡œì§ì—°ì‚° í›„ ë§ˆì§€ë§‰ì— í˜¸ì¶œë¨.
     /// </summary>
     private void LateUpdate()
     {
@@ -121,14 +137,14 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// Editor¿¡¼­ Gizmos¸¦ ·»´õ¸µ ÇÏ±âÀ§ÇÑ ¿¬»êÀ» ÇÒ¶§ È£ÃâÇÏ´Â ÇÔ¼ö
+    /// Editorì—ì„œ Gizmosë¥¼ ë Œë”ë§ í•˜ê¸°ìœ„í•œ ì—°ì‚°ì„ í• ë•Œ í˜¸ì¶œí•˜ëŠ” í•¨ìˆ˜
     /// </summary>
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawCube(Vector3.up * 2.0f, Vector3.one * 2.0f);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(Vector3.up * 1.0f + Vector3.right * 1.0f, 1.0f);
+       //Gizmos.color = Color.yellow;
+       //Gizmos.DrawCube(Vector3.up * 2.0f, Vector3.one * 2.0f);
+       //Gizmos.color = Color.cyan;
+       //Gizmos.DrawWireSphere(Vector3.up * 1.0f + Vector3.right * 1.0f, 1.0f);
     }
 
     private void OnApplicationPause(bool pause)
@@ -137,7 +153,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÅ©¸³Æ® ÀÎ½ºÅÏ½º°¡ ºñÈ°¼ºÈ­ µÉ¶§¸¶´Ù È£Ãâ
+    /// ìŠ¤í¬ë¦½íŠ¸ ì¸ìŠ¤í„´ìŠ¤ê°€ ë¹„í™œì„±í™” ë ë•Œë§ˆë‹¤ í˜¸ì¶œ
     /// </summary>
     private void OnDisable()
     {
@@ -145,7 +161,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     /// <summary>
-    /// ½ºÅ©¸³Æ® ÀÎ½ºÅÏ½º°¡ ÆÄ±«µÉ¶§ È£Ãâ
+    /// ìŠ¤í¬ë¦½íŠ¸ ì¸ìŠ¤í„´ìŠ¤ê°€ íŒŒê´´ë ë•Œ í˜¸ì¶œ
     /// </summary>
     private void OnDestroy()
     {

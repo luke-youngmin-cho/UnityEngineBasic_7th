@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abstraction", "Abstraction\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Collections", "Collections\Collections.csproj", "{DE7A86DB-7062-46C2-A848-643FE56386CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SortAlgorithms", "SortAlgorithms\SortAlgorithms.csproj", "{CEBA821A-0702-4562-84CC-89F0601CA768}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SortAlgorithms", "SortAlgorithms\SortAlgorithms.csproj", "{CEBA821A-0702-4562-84CC-89F0601CA768}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Delegate", "Delegate\Delegate.csproj", "{1FE5CDA7-E79E-43E8-9FD9-B84CCA0420B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -99,6 +101,10 @@ Global
 		{CEBA821A-0702-4562-84CC-89F0601CA768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEBA821A-0702-4562-84CC-89F0601CA768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEBA821A-0702-4562-84CC-89F0601CA768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FE5CDA7-E79E-43E8-9FD9-B84CCA0420B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FE5CDA7-E79E-43E8-9FD9-B84CCA0420B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FE5CDA7-E79E-43E8-9FD9-B84CCA0420B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FE5CDA7-E79E-43E8-9FD9-B84CCA0420B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
