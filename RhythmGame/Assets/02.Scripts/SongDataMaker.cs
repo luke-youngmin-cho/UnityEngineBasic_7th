@@ -6,6 +6,7 @@ using UnityEngine.Video;
 
 namespace RhythmGame
 {
+#if UNITY_EDITOR
     public class SongDataMaker : MonoBehaviour
     {
         private KeyCode[] _keys = { KeyCode.S, KeyCode.D, KeyCode.F, KeyCode.Space, KeyCode.J, KeyCode.K, KeyCode.L };
@@ -64,4 +65,5 @@ namespace RhythmGame
             return noteData;
         }
     }
+#endif
 }
