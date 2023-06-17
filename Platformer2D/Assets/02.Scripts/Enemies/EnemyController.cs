@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : MonoBehaviour, IDamageable, IDirectionChangeable
 {
     private Animator _animator;
     private Rigidbody2D _rb;
@@ -15,6 +15,9 @@ public class EnemyController : MonoBehaviour
         get => _direction;
         set
         {
+            if (_direction == value)
+                return;
+
             if (value > 0)
             {
                 _direction = DIRECTION_RIGHT;
@@ -25,14 +28,49 @@ public class EnemyController : MonoBehaviour
                 _direction = DIRECTION_LEFT;
                 transform.eulerAngles = new Vector3(0.0f, 180.0f, 0.0f);
             }
+
+            onDirectionChanged?.Invoke(value);
         }
     }
+
+    public float hp 
+    { 
+        get => _hp; 
+        set
+        {
+            float prev = _hp;
+            _hp = value;
+
+            if (prev != value)
+            {
+                onHpChanged?.Invoke(value);
+                if (prev > value)
+                    onHpDecreased?.Invoke(prev - value);
+                else
+                    onHpIncreased?.Invoke(value - prev);
+            }
+
+            if (value >= _hpMax)
+                onHpMax?.Invoke();
+            else if (value <= _hpMin)
+                onHpMin?.Invoke();
+        }
+    }
+
+    public float hpMax => _hpMax;
+
+    public float hpMin => _hpMin;
+
     private int _direction = DIRECTION_RIGHT;
     public const int DIRECTION_RIGHT = 1;
     public const int DIRECTION_LEFT = -1;
     [SerializeField] private bool _moveEnable = true; // 움직이는 기능 활성화 할건지
     [SerializeField] private float _moveSpeed;
     private bool _movable; // 현재 움직일수 있는 상태인지
+
+    private float _hp;
+    [SerializeField] private float _hpMax = 100.0f;
+    [SerializeField] private float _hpMin = 0.0f;
 
     public enum StateType
     {
@@ -303,14 +341,22 @@ public class EnemyController : MonoBehaviour
     }
     [SerializeField] private AI _ai;
     [SerializeField] private bool _aiAutoFollow;
-    [SerializeField] private LayerMask _aiDetectMask;
+    [SerializeField] protected LayerMask aiDetectMask;
     [SerializeField] private float _aiDetectRange = 2.0f;
     [SerializeField] private bool _aiAttackEnable = false;
     [SerializeField] private float _aiAttackRange = 0.5f;
     [SerializeField] private float _aiThinkTimeMin = 0.1f;
     [SerializeField] private float _aiThinkTimeMax = 2.0f;
     [SerializeField] private float _aiThinkTimer;
-    
+    public GameObject target;
+
+    public event Action<float> onHpChanged;
+    public event Action<float> onHpIncreased;
+    public event Action<float> onHpDecreased;
+    public event Action onHpMax;
+    public event Action onHpMin;
+    public event Action<int> onDirectionChanged;
+
     #endregion
     public bool ChangeState(StateType newState)
     {
@@ -334,6 +380,15 @@ public class EnemyController : MonoBehaviour
         _col = GetComponent<CapsuleCollider2D>();
         InitializeWorkflows();
     }
+
+    private void Start()
+    {
+        hp = hpMax;
+        onHpMin += () => ChangeState(StateType.Die);
+        HpBar.Create(this, this, transform, new Vector3(0.0f, _col.size.y + 0.1f, 0.0f));
+        _ai = AI.Think;
+    }
+
     private void Update()
     {
         UpdateAI();
@@ -365,6 +420,16 @@ public class EnemyController : MonoBehaviour
 
     private void UpdateAI()
     {
+        Collider2D detected = Physics2D.OverlapCircle(_rb.position, _aiDetectRange, aiDetectMask);
+        target = detected ? detected.gameObject : null;
+
+        if (_aiAutoFollow &&
+            _ai < AI.StartFollow &&
+            target)
+        {
+            _ai = AI.StartFollow;
+        }
+
         switch (_ai)
         {
             case AI.Idle:
@@ -382,33 +447,101 @@ public class EnemyController : MonoBehaviour
                 break;
             case AI.TakeARest:
                 {
+                    if (_aiThinkTimer > 0)
+                        _aiThinkTimer -= Time.deltaTime;
+                    else
+                        _ai = AI.Think;
                 }
                 break;
             case AI.MoveLeft:
                 {
                     direction = DIRECTION_LEFT;
+                    if (_aiThinkTimer > 0)
+                        _aiThinkTimer -= Time.deltaTime;
+                    else
+                        _ai = AI.Think;
                 }
                 break;
             case AI.MoveRight:
                 {
                     direction = DIRECTION_RIGHT;
+                    if (_aiThinkTimer > 0)
+                        _aiThinkTimer -= Time.deltaTime;
+                    else
+                        _ai = AI.Think;
                 }
                 break;
             case AI.StartFollow:
+                {
+                    ChangeState(StateType.Move);
+                    _ai = AI.Follow;
+                }
                 break;
             case AI.Follow:
+                {
+                    if (target == null)
+                    {
+                        _ai = AI.Think;
+                        return;
+                    }
+
+                    if (_rb.position.x < target.transform.position.x - _col.size.x)
+                    {
+                        direction = DIRECTION_RIGHT;
+                    }
+                    else if (_rb.position.x > target.transform.position.x + _col.size.x)
+                    {
+                        direction = DIRECTION_LEFT;
+                    }
+
+                    if (_aiAttackEnable &&
+                        Vector2.Distance(_rb.position, target.transform.position) < _aiAttackRange)
+                    {
+                        _ai = AI.StartAttack;
+                    }
+                }
                 break;
             case AI.StartAttack:
+                {
+                    if (ChangeState(StateType.Attack))
+                    {
+                        _ai = AI.Attack;
+                    }
+                    else
+                    {
+                        _ai = AI.Think;
+                    }
+                }
                 break;
             case AI.Attack:
+                {
+                    // wait until attack is finished
+                }
                 break;
             default:
                 break;
         }
+    }
 
-        if (_aiThinkTimer > 0)
-            _aiThinkTimer -= Time.deltaTime;
-        else
-            _ai = AI.Think;
+    public void Damage(GameObject damager, float amout)
+    {
+        target = damager;
+        hp = _hp - amout;
+    }
+    protected virtual void Hit() { }
+
+    protected virtual void OnDrawGizmos()
+    {
+        if (_aiAutoFollow)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawWireSphere(transform.position, _aiDetectRange);
+        }
+
+        if (_aiAttackEnable)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, _aiAttackRange);
+        }
     }
 }
