@@ -19,6 +19,9 @@ public class StateMachine : MonoBehaviour
         if (currentType == newType)
             return false;
 
+        if (states[newType].canExecute == false)
+            return false;
+
         current.Reset();
         current = states[newType];
         currentType = newType;

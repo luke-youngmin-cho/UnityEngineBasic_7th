@@ -41,11 +41,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BackgroundProp
+    uniqueID: 2727893061
+    locked: 0
   - name: Background
     uniqueID: 3237398131
     locked: 0
-  - name: BackgroundProb
-    uniqueID: 2727893061
+  - name: MiddlegroundProp
+    uniqueID: 1549290727
+    locked: 0
+  - name: Middleground
+    uniqueID: 3666530147
+    locked: 0
+  - name: ForegroundProp
+    uniqueID: 2014211101
+    locked: 0
+  - name: Foreground
+    uniqueID: 3914900365
     locked: 0
   - name: BackgroundInteractable
     uniqueID: 2836943685
