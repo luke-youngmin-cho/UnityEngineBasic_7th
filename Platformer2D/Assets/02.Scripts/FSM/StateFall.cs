@@ -21,13 +21,17 @@ public class StateFall : State
         {
             case IState<StateType>.Step.None:
                 {
+                    movement.isMovable = false;
+                    movement.isDirectionChangeable = true;
+                    rigidbody.bodyType = RigidbodyType2D.Dynamic;
+                    animator.speed = 1.0f;
+                    animator.Play("Fall");
+                    _startPosY = rigidbody.position.y;
                     currentStep++;
                 }
                 break;
             case IState<StateType>.Step.Start:
                 {
-                    animator.Play("Fall");
-                    _startPosY = rigidbody.position.y;
                     currentStep++;
                 }
                 break;

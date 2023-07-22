@@ -7,6 +7,7 @@ public class StateMachine : MonoBehaviour
     public StateType currentType;
     public IState<StateType> current;
     private Dictionary<StateType, IState<StateType>> states;
+    private bool _isDirty;
 
     public void InitStates(Dictionary<StateType, IState<StateType>> states)
     {
@@ -16,6 +17,9 @@ public class StateMachine : MonoBehaviour
 
     public bool ChangeState(StateType newType)
     {
+        if (_isDirty)
+            return false;
+
         if (currentType == newType)
             return false;
 
@@ -25,11 +29,13 @@ public class StateMachine : MonoBehaviour
         current.Reset();
         current = states[newType];
         currentType = newType;
+        _isDirty = true;
         return true;
     }
 
     private void Update()
     {
         ChangeState(current.MoveNext());
+        _isDirty = false;
     }
 }

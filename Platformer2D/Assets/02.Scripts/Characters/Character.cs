@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(StateMachine))]
 public abstract class Character : MonoBehaviour
 {
+    public float moveSpeed = 1.0f;
+    public float ladderSpeed = 1.0f;
     public float jumpForce = 3.5f;
     public float landDistance = 0.5f;
     protected StateMachine stateMachine;

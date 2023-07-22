@@ -19,12 +19,16 @@ public class StateCrouch : State
         {
             case IState<StateType>.Step.None:
                 {
+                    movement.isMovable = false;
+                    movement.isDirectionChangeable = true;
+                    rigidbody.bodyType = RigidbodyType2D.Dynamic;
+                    animator.speed = 1.0f;
+                    animator.Play("CrouchStart");
                     currentStep++;
                 }
                 break;
             case IState<StateType>.Step.Start:
                 {
-                    animator.Play("CrouchStart");
                     currentStep++;
                 }
                 break;

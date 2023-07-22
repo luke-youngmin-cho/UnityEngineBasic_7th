@@ -20,6 +20,8 @@ public class Player : Character
         crouchAction.performed += ctx => stateMachine.ChangeState(StateType.Crouch);
         crouchAction.canceled += ctx => stateMachine.ChangeState(StateType.StandUp);
 
+        InputAction upArrowAction = _input.currentActionMap.FindAction("UpArrow");
+        upArrowAction.performed += ctx => stateMachine.ChangeState(StateType.LadderUp);
     }
 
     private void Start()
@@ -33,6 +35,7 @@ public class Player : Character
             { StateType.Land, new StateLand(stateMachine) },
             { StateType.Crouch, new StateCrouch(stateMachine) },
             { StateType.StandUp, new StateStandUp(stateMachine) },
+            { StateType.LadderUp, new StateLadderUp(stateMachine) },
         });
     }
 }

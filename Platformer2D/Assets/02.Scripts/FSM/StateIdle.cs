@@ -19,12 +19,16 @@ public class StateIdle : State
         {
             case IState<StateType>.Step.None:
                 {
+                    movement.isMovable = true;
+                    movement.isDirectionChangeable = true;
+                    rigidbody.bodyType = RigidbodyType2D.Dynamic;
+                    animator.speed = 1.0f;
+                    animator.Play("Idle");
                     currentStep++;
                 }
                 break;
             case IState<StateType>.Step.Start:
                 {
-                    animator.Play("Idle");
                     currentStep++;
                 }
                 break;

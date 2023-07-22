@@ -11,6 +11,8 @@ public enum StateType
     Land,
     Crouch,
     StandUp,
+    LadderUp,
+    LadderDown,
     Attack,
     Hurt,
     Die

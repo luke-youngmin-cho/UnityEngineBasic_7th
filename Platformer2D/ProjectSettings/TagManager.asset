@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - Ground
-  - 
+  - Ladder
   - 
   - PlayerTrigger
   - PlayerCollision
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BeforeBackground
+    uniqueID: 1093997083
     locked: 0
   - name: BackgroundProp
     uniqueID: 2727893061

@@ -42,13 +42,14 @@ public class Movement : MonoBehaviour
     }
     private float _horizontal;
     public event Action<float> onHorizontalChanged;
-    [SerializeField] private float _speed = 1.0f;
     private Rigidbody2D _rigidbody;
     private Vector2 _move;
+    private Character _character;
 
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _character = GetComponent<Character>();
     }
 
     protected virtual void Update()
@@ -66,6 +67,6 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _rigidbody.position += _move * _speed * Time.fixedDeltaTime;
+        _rigidbody.position += _move * _character.moveSpeed * Time.fixedDeltaTime;
     }
 }
