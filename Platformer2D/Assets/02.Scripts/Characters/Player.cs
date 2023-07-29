@@ -16,9 +16,13 @@ public class Player : Character
         InputAction jumpAction = _input.currentActionMap.FindAction("Jump");
         jumpAction.performed += ctx => stateMachine.ChangeState(StateType.Jump);
 
-        InputAction crouchAction = _input.currentActionMap.FindAction("Crouch");
-        crouchAction.performed += ctx => stateMachine.ChangeState(StateType.Crouch);
-        crouchAction.canceled += ctx => stateMachine.ChangeState(StateType.StandUp);
+        InputAction downArrowAction = _input.currentActionMap.FindAction("DownArrow");
+        downArrowAction.performed += ctx =>
+        {
+            stateMachine.ChangeState(StateType.LadderDown);
+            stateMachine.ChangeState(StateType.Crouch);
+        };
+        downArrowAction.canceled += ctx => stateMachine.ChangeState(StateType.StandUp);
 
         InputAction upArrowAction = _input.currentActionMap.FindAction("UpArrow");
         upArrowAction.performed += ctx => stateMachine.ChangeState(StateType.LadderUp);
@@ -36,6 +40,7 @@ public class Player : Character
             { StateType.Crouch, new StateCrouch(stateMachine) },
             { StateType.StandUp, new StateStandUp(stateMachine) },
             { StateType.LadderUp, new StateLadderUp(stateMachine) },
+            { StateType.LadderDown, new StateLadderDown(stateMachine) },
         });
     }
 }

@@ -54,7 +54,10 @@ public class Movement : MonoBehaviour
 
     protected virtual void Update()
     {
-        _move = isMovable ? new Vector2(horizontal, 0.0f) : Vector2.zero;
+        if (isMovable)
+        {
+            _move = new Vector2(horizontal, 0.0f);
+        }
 
         if (isDirectionChangeable)
         {

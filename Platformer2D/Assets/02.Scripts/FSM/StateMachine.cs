@@ -26,6 +26,7 @@ public class StateMachine : MonoBehaviour
         if (states[newType].canExecute == false)
             return false;
 
+        Debug.Log($"{currentType} -> {newType}");
         current.Reset();
         current = states[newType];
         currentType = newType;

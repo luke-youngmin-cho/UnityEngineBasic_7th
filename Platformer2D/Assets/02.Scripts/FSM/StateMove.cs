@@ -5,7 +5,7 @@ using System;
 
 public class StateMove : State
 {
-    public override bool canExecute => true;
+    public override bool canExecute => _groundDetector.isDetected;
     private GroundDetector _groundDetector;
     public StateMove(StateMachine machine) : base(machine)
     {

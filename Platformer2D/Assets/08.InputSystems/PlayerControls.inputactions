@@ -15,7 +15,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Crouch",
+                    "name": "DownArrow",
                     "type": "Button",
                     "id": "bb752535-cd18-4551-8825-bf917c13b706",
                     "expectedControlType": "Button",
@@ -52,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Crouch",
+                    "action": "DownArrow",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
