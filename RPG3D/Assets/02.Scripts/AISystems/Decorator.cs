@@ -5,7 +5,7 @@ public class Decorator : Node, IParentOfChild
     public Node child { get; set; }
     private Func<Status, Status> _decorate;
 
-    public Decorator(Func<Status, Status> decorate)
+    public Decorator(BehaviourTree tree, Func<Status, Status> decorate) : base(tree)
     {
         _decorate = decorate;
     }

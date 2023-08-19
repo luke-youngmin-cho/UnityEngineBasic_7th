@@ -8,7 +8,7 @@ public class Parallel : Composite
     }
     private Policy _successPolicy;
 
-    public Parallel(Policy successPolicy)
+    public Parallel(BehaviourTree tree, Policy successPolicy) : base(tree)
     {
         _successPolicy = successPolicy;
     }

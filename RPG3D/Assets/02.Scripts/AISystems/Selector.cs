@@ -1,6 +1,10 @@
 ﻿
 public class Selector : Composite
 {
+    public Selector(BehaviourTree tree) : base(tree)
+    {
+    }
+
     public override Status Invoke()
     {
         foreach (Node child in children)

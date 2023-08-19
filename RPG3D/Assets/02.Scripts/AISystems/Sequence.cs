@@ -1,6 +1,10 @@
 ﻿
 public class Sequence : Composite
 {
+    public Sequence(BehaviourTree tree) : base(tree)
+    {
+    }
+
     public override Status Invoke()
     {
         foreach (Node child in children)
